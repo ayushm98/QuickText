@@ -9,7 +9,7 @@ const useGetConversations = () => {
 		const getConversations = async () => {
 			setLoading(true);
 			try {
-				const response = await fetch("/api/users");
+				const response = await fetch("https://quick-text.vercel.app/api/users");
 				const data = await response.json();
 				if (data.error) {
 					throw new Error(data.error);

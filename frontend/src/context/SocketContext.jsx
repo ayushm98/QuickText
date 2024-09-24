@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (authUser) {
-            const socket = io("https://chatelity-mern-chat-app.onrender.com/", {
+            const socket = io("https://quick-text.vercel.app", {
                 query: {
                     userId: authUser._Id,
                 }

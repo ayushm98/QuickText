@@ -11,11 +11,12 @@ const useLogin = () => {
         if (!success) return;
         setLoading(true)
         try {
-            const response = await fetch("/api/auth/login", {
+            const response = await fetch("https://quick-text.vercel.app/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password })
             });
+            
 
             const data = await response.json()
             if (data.error) {
