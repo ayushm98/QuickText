@@ -21,11 +21,8 @@ const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
 // Add CORS middleware to allow requests from your frontend
-app.use(cors({
-    origin: 'https://quick-text-frontend.vercel.app', // Replace with your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true // Allow credentials (cookies, headers)
-}));
+app.use(cors());
+
 
 // to parse the incoming requests with JSON payloads (from req.body)
 app.use(express.json());
