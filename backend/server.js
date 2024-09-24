@@ -49,9 +49,12 @@ app.get("*", (req, res) => {
 */
 console.log("Before starting the server...");
 server.listen(PORT, () => {
-    console.log("hahahah")
-    connectToMongoDB();
-    console.log(`Server Running on port ${PORT}`); // Fixed the backticks for template literal
+    if (err) {
+        console.error("Failed to start server:", err);
+    } else {
+        console.log("Server Running on port " + PORT);
+        connectToMongoDB();
+    }
 });
 
 console.log("After server.listen call...");
