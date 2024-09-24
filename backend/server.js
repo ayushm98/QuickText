@@ -11,9 +11,11 @@ import userRoutes from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
 
-dotenv.config();
 
-console.log(dotenv.config()); // This should log an object with parsed variables
+
+
+console.log(process.env.MONGO_DB_URL);
+console.log(process.env.JWT_SECRET);
 
 console.log(process.env.TEST_ENV); // Should output 'hello'
 
