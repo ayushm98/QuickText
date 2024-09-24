@@ -47,9 +47,11 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
 */
-
+console.log("Before starting the server...");
 server.listen(PORT, () => {
     console.log("hahahah")
     connectToMongoDB();
     console.log(`Server Running on port ${PORT}`); // Fixed the backticks for template literal
 });
+
+console.log("After server.listen call...");
