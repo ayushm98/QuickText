@@ -19,7 +19,7 @@ console.log(process.env.JWT_SECRET);
 
 console.log(process.env.TEST_ENV); // Should output 'hello'
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
 // Add CORS middleware to allow requests from your frontend
@@ -48,13 +48,22 @@ app.get("*", (req, res) => {
 });
 */
 console.log("Before starting the server...");
-server.listen(PORT, () => {
+server.listen(PORT, (err) => {
     if (err) {
-        console.error("Failed to start server:", err);
-    } else {
-        console.log("Server Running on port " + PORT);
-        connectToMongoDB();
+        console.error("Error starting server:", err);
+        return;
     }
+    console.log("Server is running on port", PORT);
+    connectToMongoDB();
 });
+
+process.on("uncaughtException", (err) => {
+    console.error("Uncaught Exception:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+    console.error("Unhandled Rejection:", err);
+});
+
 
 console.log("After server.listen call...");
