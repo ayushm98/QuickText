@@ -1,7 +1,6 @@
 import { Server } from "socket.io";
 import express from "express";
 import { server } from "../server";
-
 const io = new Server(server, {
     cors: {
         origin: ["https://quick-text-frontend.vercel.app"],
@@ -9,11 +8,14 @@ const io = new Server(server, {
     }
 });
 
+
 export const getReceiverSocketId = (receiverId) => {
     return userSocketMap[receiverId];
 };
 
 const userSocketMap = {}; // {userId: socketId}
+
+
 
 io.on("connection", (socket) => {
     console.log("a user connected", socket.id)
@@ -32,5 +34,8 @@ io.on("connection", (socket) => {
         
     });
 });
+
+
+
 
 export {  io }

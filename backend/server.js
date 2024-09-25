@@ -1,4 +1,4 @@
-import path from "path";
+
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -20,7 +20,7 @@ console.log(process.env.JWT_SECRET);
 console.log(process.env.TEST_ENV); // Should output 'hello'
 
 const PORT = process.env.PORT;
-const __dirname = path.resolve();
+
 
 
 // Add CORS middleware to allow requests from your frontend
