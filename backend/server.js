@@ -12,7 +12,7 @@ import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
 
 
-
+dotenv.config();
 
 console.log(process.env.MONGO_DB_URL);
 console.log(process.env.JWT_SECRET);
@@ -21,6 +21,7 @@ console.log(process.env.TEST_ENV); // Should output 'hello'
 
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
+
 
 // Add CORS middleware to allow requests from your frontend
 app.use(cors());
@@ -48,6 +49,8 @@ app.get("*", (req, res) => {
 });
 */
 console.log("Before starting the server...");
+
+
 server.listen(PORT, (err) => {
     if (err) {
         console.error("Error starting server:", err);
